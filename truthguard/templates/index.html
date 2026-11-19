@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TruthFetch helps investigate claims using fact-check reviews and live web sources.">
+  <title>TruthFetch — Verify before you share</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">T</span><span>truthFetch</span></a>
+    <nav><a href="#how">How it works</a><a href="#about">About</a><a class="nav-cta" href="#checker">Check a claim <span>↗</span></a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> YOUR EVERYDAY VERIFICATION DESK</div>
+      <h1>Pause the scroll.<br><span>Check the facts.</span></h1>
+      <p class="hero-copy">A headline can travel the world before the truth gets out of bed. Investigate claims with fact-check reviews and evidence from the web.</p>
+      <div class="trust-line"><span>✳</span> Evidence first. Context always. No guesswork.</div>
+    </section>
+
+    <section class="checker-card" id="checker">
+      <div class="card-heading">
+        <div><div class="section-kicker">START A FACT CHECK</div><h2>What would you like to verify?</h2></div>
+        <div class="shield">✓</div>
+      </div>
+      <form id="check-form">
+        <label class="sr-only" for="claim">Paste a headline, claim or news text</label>
+        <textarea id="claim" maxlength="4000" placeholder="Paste a headline, social post, forwarded message, or specific claim here…" required></textarea>
+        <div class="input-footer"><span id="char-count">0 / 4000</span><button type="button" class="clear-btn" id="clear-btn">Clear text</button></div>
+        <div class="form-bottom"><span class="privacy-note">⌑ Your claim is used to run this check.</span><button class="primary-btn" id="submit-btn" type="submit">Investigate claim <span>→</span></button></div>
+      </form>
+      <div class="examples"><span>TRY AN EXAMPLE</span><button type="button" class="example">“Humans only use 10% of their brains.”</button><button type="button" class="example">“The Great Wall of China is visible from the Moon.”</button></div>
+    </section>
+
+    <section id="result" class="result-section hidden" aria-live="polite">
+      <div class="result-top"><div><div class="section-kicker">INVESTIGATION REPORT</div><h2>Your verification snapshot</h2></div><span class="report-tag">TRUTHFetch REPORT</span></div>
+      <div class="verdict-card">
+        <div class="verdict-icon" id="verdict-icon">?</div>
+        <div class="verdict-main"><div class="section-kicker">ASSESSMENT</div><h3 id="verdict">Checking…</h3><p id="explanation"></p></div>
+        <div class="confidence"><span>CONFIDENCE</span><strong id="confidence">—</strong></div>
+      </div>
+      <div class="claim-quoted"><span>CLAIM INVESTIGATED</span><p id="claim-output"></p></div>
+      <div class="coverage-row" id="coverage"></div>
+      <div class="evidence-grid">
+        <div class="evidence-panel"><div class="panel-title"><span>01</span><h3>Fact-check reviews</h3></div><div id="fact-checks" class="evidence-list"></div></div>
+        <div class="evidence-panel"><div class="panel-title"><span>02</span><h3>Web evidence</h3></div><div id="sources" class="evidence-list"></div></div>
+      </div>
+      <div class="disclaimer" id="disclaimer"></div>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="section-kicker">A CLEARER WAY TO KNOW</div><h2>Not just a label.<br><span>A trail of evidence.</span></h2>
+      <div class="steps">
+        <article><div class="step-num">01</div><div class="step-icon">⌕</div><h3>Submit a claim</h3><p>Paste the exact wording of a headline, message, or statement you want to investigate.</p></article>
+        <article><div class="step-num">02</div><div class="step-icon">◎</div><h3>Compare evidence</h3><p>Look for matching fact-check reviews and relevant reporting from searchable sources.</p></article>
+        <article><div class="step-num">03</div><div class="step-icon">↗</div><h3>Read the context</h3><p>Open original sources, compare dates and details, then make an informed decision.</p></article>
+      </div>
+    </section>
+
+    <section class="note-section" id="about"><div class="note-icon">i</div><div><h3>Truth is more than a traffic-light label.</h3><p>TruthFetch is an investigation assistant, not an infallible judge. A missing result does not mean a claim is fake. Similar claims can differ in wording, date, place, and context. Always read the linked evidence before sharing.</p></div></section>
+  </main>
+
+  <footer><a class="brand" href="/"><span class="brand-mark">T</span><span>truthFetch</span></a><span>Verify before you amplify.</span><span>Built for curious minds · © 2026</span></footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
